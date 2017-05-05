@@ -15,8 +15,9 @@ var QueryString = get('QueryString');
 console.log(get('QueryString'));
 
 var link = document.createElement("a");
-var link_text = "http://410d2qkbuarcrjfb0fln2bus5w.hop.clickbank.net/?TID=" + QueryString;
+var link_text = "Click here";
 link.appendChild(document.createTextNode(link_text));
+link.href = "http://410d2qkbuarcrjfb0fln2bus5w.hop.clickbank.net/?TID=" + QueryString;
 document.body.appendChild(link);
 
 </script>
