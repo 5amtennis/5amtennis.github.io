@@ -1,11 +1,23 @@
-<!DOCTYPE HTML>
 <html>
 <head>
-<title>5amtennis</title>
+	<title>Testing Parameter Extraction</title>
 </head>
-
 <body>
-<p>Hello World</p>
-</body>
 
+<script type="text/javascript">
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+
+var param = get('param');
+
+console.log(get('param'));
+
+var span = document.createElement("span");
+span.appendChild(document.createTextNode(param);
+document.body.appendChild(span);
+
+</script>
+</body>
 </html>
