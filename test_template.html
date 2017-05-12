@@ -50,7 +50,7 @@ function getCookie(cname) {
 }
     
 function convertToValidFormat(string) {
-    return string.replace(/ /g,"_").replace(/[^0-9a-z]/gi, '').substring(0, 100);
+    return string.replace(/ /g,"_").replace(/[^0-9a-z_]/gi, '').substring(0, 100);
 }    
     
 var QueryString = getParam('QueryString'); //get QueryString param from request
