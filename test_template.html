@@ -53,7 +53,7 @@ var QueryString = getParam('QueryString');
 
 console.log(getParam('QueryString'));    
 
-if (QueryString)
+if (QueryString != undefined)
     setCookie("QueryString", QueryString, 1);
     
 </script>    
