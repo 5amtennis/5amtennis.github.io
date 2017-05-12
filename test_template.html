@@ -55,6 +55,11 @@ function convertToValidFormat(string) {
     
 var QueryString = getParam('QueryString'); //get QueryString param from request
 
+if (history.pushState) { //Take QueryString Out of URL
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '';
+    window.history.pushState({path:newurl},'',newurl);
+}    
+      
 if (QueryString != undefined)
     QueryString = convertToValidFormat(QueryString); //Convert to valid format with underscores limited at 100 chars
     console.log(QueryString); 
