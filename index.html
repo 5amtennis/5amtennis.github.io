@@ -31,14 +31,14 @@ var QueryString = "no-cookie";
 var cookie = getCookie("QueryString");
 if (cookie != "")
     QueryString = cookie;
-
-var link = document.createElement("a");
-var link_text = "Click here";
-link.appendChild(document.createTextNode(link_text));
     
+//Testing
 window.location.replace("http://stackoverflow.com/?tid=" + QueryString );    
-    
+//Production
+//window.location.replact("http://410d2qkbuarcrjfb0fln2bus5w.hop.clickbank.net/?tid=" + QueryString);    
+
 //link.href = "http://410d2qkbuarcrjfb0fln2bus5w.hop.clickbank.net/?tid=" + QueryString;
+    
 //document.body.appendChild(link);
     
     
