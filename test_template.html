@@ -51,7 +51,11 @@ function getCookie(cname) {
     
 function convertToValidFormat(string) {
     return string.replace(/ /g,"_").replace(/[^0-9a-z_]/gi, '').substring(0, 100);
-}    
+}
+    
+function insertBefore(el, referenceNode) {
+    referenceNode.parentNode.insertBefore(el, referenceNode);
+}
     
 var QueryString = getParam('QueryString'); //get QueryString param from request
 
@@ -60,11 +64,16 @@ if (history.pushState) { //Take QueryString Out of URL
     window.history.pushState({path:newurl},'',newurl);
 }    
       
-if (QueryString != undefined)
+if (QueryString != undefined){
     QueryString = convertToValidFormat(QueryString); //Convert to valid format with underscores limited at 100 chars
     console.log(QueryString); 
     setCookie("QueryString", QueryString, 1);
-    
+
+    var bingquery_el = document.querySelector("#bingquery");
+    bingquery_el.value = QueryString;
+}
+
+}
 </script>    
     
 <!-- Javascript End -->
@@ -121,7 +130,7 @@ if (QueryString != undefined)
 </li>
             <li>Save hours of time you'd spend searching the internet for a patchwork of advice.</li>
 
-            <li>Learn today!</li>
+            <li>Get started now!</li>
           </ul>
         </div>
         <!-- Video Text --> 
@@ -133,19 +142,19 @@ if (QueryString != undefined)
   <!-- Content Bg -->
   <div class="content-bg">
     <div class="content-center">
-      <div class="should-text">Learn how to purchase the eBook!</div>
+        <div class="should-text">Ultimate Interview Preparation Guide<div style="font-size:.5em;">Regular Price <strike>$69.95</strike> Today Only <b>$37</b>!</div></div>
       <div class="send-button"> <a href="#" data-reveal-id="myModal" data-animation="none">Show Me<span>›</span></a>
         <p>Privacy Policy: We hate SPAM and promise to keep your email address safe.</p>
       </div>
     </div>
   </div>
   <div class="mentioned-logo">
-    <h2 class="title">Over 27,000 Buyers Since 2004!</h2>
+    <h2 class="title">eBook Has Over 27,000 Buyers Since 2004!</h2>
     <ul>
-      <li><div style="font-size:2em;">98.7%</div> Customer Satisfaction Rating</li>
-      <li class="right"><div style="font-size:2em;">7th</div> Edition</li>
-      <li><div style="font-size:2em;">100s</div> of Positive Reviews!</li>
-      <li class="last right"><div style="font-size:2em;">60-Day</div> Money Back Guarantee</li>
+      <li style="background: #f8f8f8"><div style="font-size:2em;">98.7%</div> Customer Satisfaction Rating</li>
+      <li style="background: #f8f8f8" class="right"><div style="font-size:2em;">7th</div> Edition</li>
+      <li style="background: #f8f8f8"><div style="font-size:2em;">100s</div> of Positive Reviews!</li>
+      <li style="background: #f8f8f8" class="last right"><div style="font-size:2em;">60-Day</div> Money Back Guarantee</li>
     </ul>
   </div>
   <!-- End Content Bg --> 
@@ -157,14 +166,12 @@ if (QueryString != undefined)
 <!-- PopUp -->
 <div class="popup-container reveal-modal" id="myModal">
   <div class="popup" id="register_popup">
-    <p class="popup-headline">Enter your email address below to learn word-for-word exactly what to say during your interview...get started today!</p>
-    
+    <p class="popup-headline">"I found the book to be a tremendous resource that changed how I prepared for an interview. The focus on the behavioral interview and how to prepare for it was worth many times what I paid for it."</p>
 <!-- Begin MailChimp Signup Form -->
 <div id="mc_embed_signup">
 <form action="//github.us15.list-manage.com/subscribe/post?u=f1636f05321ec549a36e28b32&amp;id=5f5831085c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-  <h2>Subscribe to our mailing list</h2>
-<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+  <h2>Learn How To Purchase By Entering Your Email Below</h2>
 <div class="mc-field-group">
   <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
 </label>
@@ -176,9 +183,9 @@ if (QueryString != undefined)
   </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f1636f05321ec549a36e28b32_5f5831085c" tabindex="-1" value=""></div>
 
-    <input type="hidden" name="BINGQUERY" id="BINGQUERY" value="testingthis" />
+    <input id="bingquery" type="hidden" name="BINGQUERY" id="BINGQUERY" value="" />
 
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    <div class="clear"><input type="submit" value="Show Me" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
     </div>
 </form>
 </div>
