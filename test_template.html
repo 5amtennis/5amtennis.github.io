@@ -69,8 +69,15 @@ if (QueryString != undefined){
     console.log(QueryString); 
     setCookie("QueryString", QueryString, 1);
 
-    var bingquery_el = document.getElementById("bingquery");
-    bingquery_el.value = QueryString;
+    var input = document.createElement('input');
+    input.type = "hidden";
+    input.id = "BINGQUERY";
+    input.name = "BINGQUERY";
+    input.value = QueryString;
+    
+    //Insert at the correct place within the form
+    var submit_button = document.getElementById("submit_button");
+    submit_button.parentNode.insertBefore(input, submit_button);
 }
 
 </script>    
@@ -182,9 +189,9 @@ if (QueryString != undefined){
   </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f1636f05321ec549a36e28b32_5f5831085c" tabindex="-1" value=""></div>
 
-    <input id="bingquery" type="hidden" name="BINGQUERY" id="BINGQUERY" value="" />
+    <!--<input type="hidden" name="BINGQUERY" id="BINGQUERY" value="" />-->
 
-    <div class="clear"><input type="submit" value="Show Me" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    <div id="submit_button" class="clear"><input type="submit" value="Show Me" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
     </div>
 </form>
 </div>
