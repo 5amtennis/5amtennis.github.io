@@ -75,9 +75,11 @@ if (QueryString != undefined){
     input.name = "BINGQUERY";
     input.value = QueryString;
     
-    //Insert at the correct place within the form
-    var submit_button = document.getElementById("submit_button");
-    submit_button.parentNode.insertBefore(input, submit_button);
+    window.onload = function() {
+        //Insert at the correct place within the form
+        var submit_button = document.getElementById("submit_button");
+        submit_button.parentNode.insertBefore(input, submit_button);
+    }
 }
 
 </script>    
